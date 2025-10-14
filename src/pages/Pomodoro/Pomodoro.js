@@ -45,12 +45,19 @@ export default function Pomodoro() {
     return `${mm.toString().padStart(2, '0')}:${ss.toString().padStart(2, '0')}`;
   };
   return (
-    <div>
-      <h1>Countdown Timer</h1>
-      <p>Time Remaining: {formatTime(seconds)}</p>
-      <button onClick={startTimer} disabled={isRunning || seconds === 0}>Start</button>
-      <button onClick={pauseTimer} disabled={!isRunning}>Pause</button>
-      <button onClick={resetTimer}>Reset</button>
+    <div style={{display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
+      <h1 style={{fontFamily:"Bodoni Moda"}}>Pomodoro Timer</h1>
+      <div className='cardGradient' style={{alignItems:'center', justifyContent: 'center'}}>
+        <div style={{display:'flex', justifyContent:'space-around'}}>
+            <label>Focus</label>
+            <label>Break</label>
+        </div>
+        <p>{formatTime(seconds)}</p>
+        <p>until break</p>
+        <button onClick={startTimer} disabled={isRunning || seconds === 0}>Start</button>
+        <button onClick={pauseTimer} disabled={!isRunning}>Pause</button>
+        <button onClick={resetTimer}>Reset</button>
+     </div>
     </div>
   );
 }

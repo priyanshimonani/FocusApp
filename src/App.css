@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/shadergradient.gif');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center;
+  font-family: 'Raleway',sans-serif;
+}
+.cardGradient{
+  background: linear-gradient(
+    135deg,
+    rgba(255, 251, 251, 0.63),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  width: max-content;
+  padding: 100px;
+}
