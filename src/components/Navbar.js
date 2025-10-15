@@ -1,5 +1,7 @@
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link, useLocation} from 'react-router-dom';
 export  default function Navbar(){
+    const location = useLocation();
+    console.log(location)
     return(
         <nav>
             <ul>
