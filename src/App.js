@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing/Landing';
 import Pomodoro from './pages/Pomodoro/Pomodoro';
+import TodoList from './pages/TodoList/TodoList';
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/pomodoro" element={<Pomodoro />} />
+            <Route path="/todo" element={<TodoList/>}/>
           </Routes>
     </BrowserRouter>
   );
