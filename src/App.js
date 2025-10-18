@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Landing from './pages/Landing/Landing';
 import Pomodoro from './pages/Pomodoro/Pomodoro';
 import TodoList from './pages/TodoList/TodoList';
-
+import Quotes from './pages/Quotes/Quotes';
 function App() {
   // ✅ Load todos directly from localStorage at initialization
   const [todos, setTodos] = useState(() => {
@@ -32,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/pomodoro" element={<Pomodoro />} />
+        <Route path="/quotes" element={<Quotes/>}/>
         <Route path="/todo" element={<TodoList todos={todos} setTodos={setTodos} />} />
       </Routes>
     </BrowserRouter>
