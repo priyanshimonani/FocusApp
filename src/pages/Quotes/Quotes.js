@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import quoteIcon from './quote-icon.svg';
 
 export default function Quotes() {
-  const quotesLibrary = [
-    { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-    { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-    { quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-    { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-    { quote: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
-    { quote: "Everything you've ever wanted is on the other side of fear.", author: "George Addair" },
-    { quote: "Believe in yourself. You are braver than you think, more talented than you know, and capable of more than you imagine.", author: "Roy T. Bennett" },
-    { quote: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
-    { quote: "Success is not how high you have climbed, but how you make a positive difference to the world.", author: "Roy T. Bennett" },
-    { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" }
-  ];
+  const [quote, setQuote] = useState({ quote: "Loading...", author: "" });
+  
+  useEffect(() => {
+    getNewQuote();
+  }, []); 
 
-  const [quote, setQuote] = useState(quotesLibrary[0]);
-
-  const getNewQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotesLibrary.length);
-    setQuote(quotesLibrary[randomIndex]);
-  };
+const getNewQuote = async () => {
+  try {
+    const response = await fetch('https://dummyjson.com/quotes/random');
+    const data = await response.json();
+    console.log('API Response:', data);
+    setQuote({ quote: data.quote, author: data.author });
+  } catch (error) {
+    console.error('Error fetching quote:', error);
+    setQuote({ quote: "Failed to load quote. Check console for error.", author: "" });
+  }
+};
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(`"${quote.quote}" - ${quote.author}`);
-    alert('Quote copied to clipboard!');
+    alert('copied to clipboard!');
   };
 
-  const shareOnTwitter = () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?text="${encodeURIComponent(quote.quote)}" - ${encodeURIComponent(quote.author)}`;
-    window.open(twitterUrl, '_blank');
-  };
+const shareOnTumblr = () => {
+  if (quote) {
+    const tumblrUrl = `https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=motivation,quotes&caption=${encodeURIComponent(quote.author)}&content=${encodeURIComponent(quote.quote)}&canonicalUrl=https://yourapp.com`;
+    window.open(tumblrUrl, '_blank');
+  }
+};
 
   const getCurrentDate = () => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -70,7 +71,7 @@ export default function Quotes() {
           background: linear-gradient(135deg, rgba(255,251,251,0.63), rgba(255,255,255,0.3));
           backdrop-filter: blur(8px);
           border-radius: 20px;
-          padding: 3rem;
+          padding: 0.5rem;
           box-shadow: 0 4px 20px rgba(0,0,0,0.1);
           max-width: 700px;
           width: 100%;
@@ -89,7 +90,8 @@ export default function Quotes() {
           line-height: 1.5;
           color: #1E1E1E;
           margin: 0 0 2rem 0;
-          font-style: italic;
+          text-align: left;
+          padding: 2rem;
         }
         
         .quote-author {
@@ -97,7 +99,8 @@ export default function Quotes() {
           font-size: 1.1rem;
           color: #555;
           text-align: right;
-          margin-bottom: 0;
+          width: 90%;
+          padding: 1rem;
         }
         
         .btn-group {
@@ -131,16 +134,16 @@ export default function Quotes() {
       `}</style>
       
       <div className="date-display">{getCurrentDate()}</div>
-      
+
       <div className="card">
-        <p className="quote-text">"{quote.quote}"</p>
+        <img src={quoteIcon} alt="quote icon" style={{ width: '80px', height: '80px', marginBottom: '0rem', alignSelf: 'flex-start' }} />
+        <p className="quote-text">{quote.quote}</p>
         <p className="quote-author">— {quote.author}</p>
       </div>
-      
       <div className="btn-group">
         <button onClick={getNewQuote}>New Quote</button>
         <button onClick={copyToClipboard}>Copy to Clipboard</button>
-        <button onClick={shareOnTwitter}>Share on Twitter</button>
+        <button onClick={shareOnTumblr}>Share on Tumblr</button>
       </div>
     </div>
   );
