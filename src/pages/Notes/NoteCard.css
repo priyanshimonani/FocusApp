@@ -1,0 +1,48 @@
+.note-wrapper {
+  background: white;               /* white base layer */
+  border-radius: 12px;
+  padding:6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* display: inline-block; */
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 200px;
+  margin-left: 15px;
+}
+
+.note-wrapper:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+.note-card {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  height:160px;
+}
+
+.note-card h4 {
+  margin: 0 0 5px;
+  
+  /* background-color: blue; */
+}
+
+/* .note-card h6 {
+  margin: 0 0 5px;
+  font-weight: normal;
+  
+} */
+
+.note-card p {
+  margin: 0;
+  /* background-color: rgb(216, 131, 216); */
+  height:140px;
+  overflow: hidden;
+  text-overflow: ellipsis;/*...... */
+   white-space: pre-wrap;
+}
