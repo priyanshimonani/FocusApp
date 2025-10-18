@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function TodoList() {
-  const [todos, setTodos] = useState([]);
+export default function TodoList({ todos, setTodos }) {
   const [showModal, setShowModal] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [currentTodo, setCurrentTodo] = useState({
@@ -11,6 +10,7 @@ export default function TodoList() {
     completed: false
   });
   const [hoveredId, setHoveredId] = useState(null);
+
 
   const getCurrentDate = () => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
