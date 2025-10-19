@@ -175,22 +175,21 @@ export default function TodoList({ todos, setTodos }) {
 
         .add-button {
           position: fixed;
-          bottom: 2rem;
-          right: 2rem;
-          width: 60px;
-          height: 60px;
+          bottom: 20px;
+          right: 20px;
+          background: linear-gradient(
+              135deg,
+            rgba(255, 251, 251, 0.63),
+            rgba(255, 255, 255, 0.3)
+          );
+          color: black;
+          border: none;
           border-radius: 50%;
-          background-color: #FFFBB6;
-          border: 2px solid black;
-          font-family: "Raleway", sans-serif;
-          font-size: 2rem;
-          font-weight: 500;
+          width: 56px;
+          height: 56px;
+          font-size: 24px;
           cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.2s ease;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         .add-button:hover {
@@ -382,7 +381,7 @@ export default function TodoList({ todos, setTodos }) {
         ))}
       </div>
 
-      <button className="add-button" onClick={() => openModal()}>+</button>
+      <button className="add-button" onClick={() => openModal()}><b>+</b></button>
 
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>

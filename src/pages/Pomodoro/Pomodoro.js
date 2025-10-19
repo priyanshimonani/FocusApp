@@ -77,7 +77,7 @@ export default function Pomodoro() {
           content: "";
           position: absolute;
           inset: 0;
-          border-radius: 22px;
+          border-radius: 15px;
           padding: 4px; 
           background: conic-gradient(
             black ${progress}%,

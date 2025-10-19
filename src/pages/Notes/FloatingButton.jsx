@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa";
 
 function FloatingButton({ onClick }) {
   return (
@@ -21,7 +20,7 @@ function FloatingButton({ onClick }) {
         boxShadow: "0 4px 6px rgba(0,0,0,0.3)"
       }}
     >
-      <FaPlus />
+      <b>+</b>
     </button>
   );
 }

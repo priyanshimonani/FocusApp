@@ -35,7 +35,7 @@ export default function Landing() {
 </style>
             <label className="title">Focusora</label><br />
             <div style={{ textAlign: 'center', padding: '0 10px' }}>
-                <label className="title flowyText">All your Productivity, <i>Unleased.</i></label><br />
+                <label className="title flowyText">All your Productivity, <i>Unleashed.</i></label><br />
                 <label style={{ fontFamily: 'Lora' }}><b>Plan, focus, create, and get inspired - all within a single, powerful hub</b></label>
             </div>
             <div style={{ textAlign: 'center', marginTop: '40px' }}>
