@@ -39,15 +39,9 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/pomodoro" element={<Pomodoro />} />
             <Route path="/notes" element={<Notes />} />
+            <Route path="/quotes" element={<Quotes/>}/>
+            <Route path="/todo" element={<TodoList todos={todos} setTodos={setTodos} />} />
           </Routes>
-
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/pomodoro" element={<Pomodoro />} />
-        <Route path="/quotes" element={<Quotes/>}/>
-        <Route path="/todo" element={<TodoList todos={todos} setTodos={setTodos} />} />
-      </Routes>
 
     </BrowserRouter>
   );
