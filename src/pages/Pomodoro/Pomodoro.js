@@ -15,13 +15,13 @@ export default function Pomodoro() {
     } else if (seconds === -1 && isBreak) {
       clearInterval(intervalId); // Clear interval when timer reaches zero
       bellSound.play(); 
-      setSeconds(10); 
+      setSeconds(25*60); 
       setIsBreak(false);
     }
     else if (seconds === -1 && !isBreak) {
       clearInterval(intervalId); // Clear interval when timer reaches zero
       bellSound.play(); 
-      setSeconds(5); 
+      setSeconds(5*60); 
       setIsBreak(true);
     }
     return () => clearInterval(intervalId); // Cleanup on unmount or dependency change
