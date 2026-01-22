@@ -12,7 +12,7 @@ import TodoList from './pages/TodoList/TodoList';
 import Quotes from './pages/Quotes/Quotes';
 
 function App() {
-  // ✅ Load todos directly from localStorage at initialization
+  // put this here cause in todo.js it wasnt working
   const [todos, setTodos] = useState(() => {
     try {
       const saved = localStorage.getItem('todos');
